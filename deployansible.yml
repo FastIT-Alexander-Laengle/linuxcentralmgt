@@ -4,6 +4,10 @@
   gather_facts: false
   become: true
   tasks:
+    - name: install epel release
+      package:
+        name: epel-release
+
     - name: install base packages
       package:
         name: 
