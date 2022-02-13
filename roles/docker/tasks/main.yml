@@ -10,8 +10,13 @@
     name: "{{ item }}"
     state: present
   loop:
-    - https://download.docker.com/linux/centos/7/x86_64/stable/Packages/containerd.io-1.2.6-3.3.el7.x86_64.rpm
     - dnf-plugins-core
+
+- name: server | software | docker | centos deps
+  dnf:
+    name: https://download.docker.com/linux/centos/7/x86_64/stable/Packages/containerd.io-1.2.6-3.3.el7.x86_64.rpm
+    state: present
+  when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "8"
  
 - name: server | software | docker | add docker-repo
   get_url:
