@@ -1,0 +1,12 @@
+---
+- hosts: all
+  become: true
+  roles:
+    - base
+    
+  tasks:
+    - include_role: 
+        name: docker
+      when: 
+        - docker is defined
+        - docker == true

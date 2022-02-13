@@ -1,0 +1,116 @@
+"set leaderkey
+let mapleader="," "leader is a comma
+set modelines=1
+set nocompatible
+filetype plugin on
+syntax enable           " enable syntax processing
+"tabsolution {{{
+set tabstop=4       " number of visual spaces per TAB
+set softtabstop=4   " number of spaces in tab when editing
+set expandtab       " tabs are spaces
+" }}}
+"searchsolution {{{
+set incsearch           " search as characters are entered
+set hlsearch            " highlight matches
+" }}}
+" turn off search highlight {{{
+nnoremap <leader><space> :nohlsearch<CR>
+ " }}}
+" move vertically by visual line {{{
+nnoremap j gj
+nnoremap k gk
+"These two allow us to move around lines visually. So if there's a very long line that gets visually wrapped to two lines, j won't skip over the "fake" part of the visual line in favor of the next "real" line.
+" }}}
+" move to beginning/end of line {{{
+nnoremap B ^
+nnoremap E $
+" }}}
+" highlight last inserted text {{{
+nnoremap gV `[v`]
+" }}}
+" toggle gundo {{{
+nnoremap <leader>u :GundoToggle<CR>
+" }}}
+" spellcheck
+set spellcapcheck=
+" au BufNewFile,BufRead,BufEnter  *.md    setlocal spell  spelllang=de_de
+nnoremap <leader>s :setlocal spell spelllang=de_de<CR>
+" }}}
+
+
+"foldsolution {{{
+set foldenable          " enable folding
+set foldlevelstart=10   " open most folds by default
+set foldnestmax=10      " 10 nested fold max
+set foldmethod=indent   " fold based on indent level
+" }}}
+" space open/closes folds {{{
+nnoremap <space> za
+" }}}
+" jk is escape {{{
+inoremap jk <esc>
+" }}}
+"Visuals {{{
+set number              " show line numbers
+set cursorline          " highlight current line
+
+set lazyredraw          " redraw only when we need to.
+set showmatch           " highlight matching [{()}]
+
+filetype indent on      " load filetype-specific indent files
+set wildmenu            " visual autocomplete for command menu
+
+set showcmd "zeige leader key usage 
+
+" }}}
+"noremap <silent> <leader>om :call OpenMarkdownPreview()<cr>
+
+"function! OpenMarkdownPreview() abort
+"  if exists('s:markdown_job_id') && s:markdown_job_id > 0
+"    call jobstop(s:markdown_job_id)
+"    unlet s:markdown_job_id
+"  endif
+"  let s:markdown_job_id = jobstart(
+"    \ 'grip ' . shellescape(expand('%:p')) . " 0 2>&1 | awk '/Running/ { printf $4 }'",
+"    \ { 'on_stdout': 'OnGripStart', 'pty': 1 })
+"  function! OnGripStart(_, output, __)
+"    call system('open ' . a:output[0])
+"  endfunction
+"endfunction
+
+" vim:foldmethod=marker:foldlevel=0
+let wiki_1 = {}
+let wiki_1.path = '~/nc/fast/vimwiki/'
+let wiki_1.syntax = 'markdown'
+let wiki_1.ext = '.md'
+let wiki_1.custom_wiki2html = '~/scripts/vimwiki-hugo/wiki2html.sh'
+let wiki_2 = {}
+let wiki_2.path = '~/nc/fast/doku/internal/docs/'
+let wiki_2.syntax = 'markdown'
+let wiki_2.ext = '.md'
+let g:vimwiki_markdown_link_ext = 1
+let g:vimwiki_list = [wiki_1, wiki_2]
+"\ 'custom_wiki2html': '~/scripts/wiki2html.sh'}]
+" disable url shortening
+let g:vimwiki_url_maxsave=0
+nnoremap <leader>t <esc>:VimwikiTable 3 2 <CR>
+nnoremap <leader>d "=strftime("%Y-%m-%d")<CR>P
+"let g:vimwiki_list = [{
+"  \ 'auto_export': 1,
+"  \ 'automatic_nested_syntaxes':1,
+"  \ 'path_html': '$HOME/nc/fast/vimwiki/_site',
+"  \ 'path': '$HOME/nc/fast/vimwiki',
+"  \ 'template_path': '$HOME/nc/fast/vimwiki/templates/',
+"  \ 'syntax': 'markdown',
+"  \ 'ext':'.md',
+"  \ 'template_default':'markdown',
+"  \ 'custom_wiki2html': '$HOME/scripts/wiki2html.sh',
+"  \ 'template_ext':'.html'
+"\}]
+"fuzzyfinder - Now we can :fint hit tap by partial match and use * to make in
+"fuzzy
+set path+=**
+set wildmenu
+"wiki.js timestamp autoupdate
+"autocmd BufWritePre *.md :5s/date:\s\zs.*/\=strftime('%Y-%m-%dT%H:%M:%S.%Z')/e
+autocmd FileType yaml setlocal ai et ts=2 sw=2 cuc cul

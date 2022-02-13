@@ -1,0 +1,43 @@
+---
+# tasks file for base
+- name: base | install basic packages
+  package:
+    name:
+      - nmap
+      - htop
+      - vim
+      - git
+
+- name: users | make sure sudo is installed
+  package:
+    name: sudo
+    state: latest
+
+- name: sshd | make sure it's running
+  systemd:
+    name: sshd
+    state: started
+    enabled: true
+
+- name: base | add user laenglea
+  include: usercreate.yml username=laenglea sshkey="ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEKFyLa/JEgIK6zEUaGNz1hwSRncCNdWxYMxy0iCEn1h Alexander Längle"
+
+- name: base | autoupdate setup
+  package:
+    name: dnf-automatic
+    state: latest
+
+- name: base | enable autoupdate
+  systemd:
+    name: dnf-automatic-install.timer
+    state: started
+    enabled: true
+
+- name: base | setup cronjob
+  cron:
+    name: Autodeploy
+    user: "{{ deployer_user }}"
+    special_time: "{{ deployer_cron_specialtime }}"
+    job: "{{ deployer_cron_job }}"
+  when:
+    - deployer_cron is defined

@@ -1,0 +1,6 @@
+---
+# vars file for base
+deployer_cron: true
+deployer_cron_specialtime: hourly
+deployer_cron_job: ansible-pull -U ssh://git@gitlab.com/a.laengle/ansible_serverconfig.git
+
