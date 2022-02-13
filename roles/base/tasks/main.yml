@@ -7,8 +7,6 @@
       - htop
       - vim
       - git
-      - cronie
-      - cronie-anacron
 
 - name: users | make sure sudo is installed
   package:
