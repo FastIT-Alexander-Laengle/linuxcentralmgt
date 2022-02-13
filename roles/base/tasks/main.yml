@@ -33,11 +33,8 @@
     state: started
     enabled: true
 
-      #- name: base | setup cronjob
-      #cron:
-      # name: Autodeploy
-      # user: "{{ deployer_user }}"
-      #special_time: "{{ deployer_cron_specialtime }}"
-      #job: "{{ deployer_cron_job }}"
-      #when:
-      #- deployer_cron is defined
+- name: base | setup cronjob
+  cron:
+    name: Autodeploy
+    special_time: "{{ deployer_cron_specialtime }}"
+    job: "{{ deployer_cron_job }}"
