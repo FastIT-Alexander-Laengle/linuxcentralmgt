@@ -28,7 +28,7 @@
     dest: /etc/yum.repos.d/docker-ce.repo
     section: 'docker-ce-stable'
     option: enabled
-    value: 1
+    value: '1'
  
 - name: server | software | docker | install docker
   dnf:
