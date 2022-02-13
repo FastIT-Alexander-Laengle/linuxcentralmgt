@@ -1,4 +1,9 @@
 # Central administration template
 
-1. install required packages on destination server
+This is a basic template to centralize the Linux Administration with ansible-pull
+
+## Requirements
+
+go install the required packages on the client-machines:
+    
     ansible-playbook deployansible.yml --ask-pass -i 172.16.80.35,
