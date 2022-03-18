@@ -23,12 +23,12 @@
     url: https://download.docker.com/linux/centos/docker-ce.repo
     dest: /etc/yum.repos.d/docker-ce.repo
  
-- name: server | software | docker | enable docker-repo
-  ini_file:
-    dest: /etc/yum.repos.d/docker-ce.repo
-    section: 'docker-ce-stable'
-    option: enabled
-    value: '1'
+      #- name: server | software | docker | enable docker-repo
+      #ini_file:
+      #dest: /etc/yum.repos.d/docker-ce.repo
+      #section: 'docker-ce-stable'
+      #option: enabled
+      #value: '1'
  
 - name: server | software | docker | install docker
   dnf:
