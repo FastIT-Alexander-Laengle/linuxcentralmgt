@@ -1,5 +1,5 @@
 ---
 # vars file for base
 deployer_cron_specialtime: daily
-deployer_cron_job: ansible-pull -U https://github.com/FastIT-Alexander-Laengle/linuxcentralmgt.git -i hosts
+deployer_cron_job: ansible-pull -U https://github.com/laengle/linuxcentralmgt.git -i hosts
 
