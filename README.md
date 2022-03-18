@@ -10,4 +10,4 @@ go install the required packages on the client-machines:
 
 ## Pull request
 
-    ansible-pull -U https://github.com/FastIT-Alexander-Laengle/linuxcentralmgt.git -i hosts
+    ansible-pull -U https://github.com/laenglea/linuxcentralmgt.git -i hosts
