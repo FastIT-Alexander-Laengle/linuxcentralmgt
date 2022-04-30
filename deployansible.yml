@@ -11,7 +11,7 @@
   tasks:
     - name: install epel release
       package:
-        name: epel-release
+        name: '{{epelrelease}}'
 
     - name: install base packages
       package:
