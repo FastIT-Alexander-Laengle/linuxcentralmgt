@@ -1,8 +1,13 @@
 ---
 - hosts: all
-  remote_user: root
+  remote_user: opc
   gather_facts: false
   become: true
+  vars:
+    params:
+      files:
+        - '{{ansible_distribution}}.yml'
+    
   tasks:
     - name: install epel release
       package:
