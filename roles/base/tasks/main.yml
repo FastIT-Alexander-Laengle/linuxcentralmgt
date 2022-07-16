@@ -49,12 +49,12 @@
 - name: base | install guest utilities on xen guests
   package:
     name: xe-guest-utilities-latest
-  when: {{ ansible_virtualization_type }} == "xen"
+  when: "{{ ansible_virtualization_type }} == xen"
   
 - name: install base packages
   systemd:
     name: xe-linux-distribution
     state: started
     enabled: true
-  when: {{ ansible_virtualization_type }} == "xen"
+  when: "{{ ansible_virtualization_type }} == xen"
 
