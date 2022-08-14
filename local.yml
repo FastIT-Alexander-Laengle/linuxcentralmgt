@@ -3,7 +3,8 @@
   become: true
   roles:
     - base
-    
+  vars:
+    deployer_cron_job: ansible-pull -U https://github.com/laengle/linuxcentralmgt.git -i hosts 
   tasks:
     - include_role: 
         name: docker
