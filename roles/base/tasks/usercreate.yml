@@ -34,8 +34,8 @@
 
 - name: users | {{ username }}| copy vimrc
   copy:
-    src: users/{{ username }}/vimrc
+    src: users/laenglea/vimrc
     dest: /home/{{ username }}/.vimrc
-    owner: laenglea
-    group: laenglea
+    owner: "{{ username }}"
+    group: "{{ username }}"
  
