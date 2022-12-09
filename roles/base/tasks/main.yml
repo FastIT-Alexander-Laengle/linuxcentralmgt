@@ -27,7 +27,7 @@
     enabled: true
 
 - name: base | add user laenglea
-  include: "{{item}}"
+  include_tasks: "{{item}}"
   with_items:
     - usercreate.yml username=laenglea sshkey="ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEKFyLa/JEgIK6zEUaGNz1hwSRncCNdWxYMxy0iCEn1h Alexander Längle"
     - usercreate.yml username=automation sshkey="ssh-ed25519 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICjQ6czmPV5GMP2GCXYChPkDAKaH/6rZU/uWDRTKdIME"
