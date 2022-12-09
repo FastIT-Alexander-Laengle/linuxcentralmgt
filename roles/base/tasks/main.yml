@@ -29,14 +29,14 @@
 - name: base | add user laenglea
   import_tasks: usercreate.yml
   vars: 
-    - username=laenglea 
-    - sshkey="ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEKFyLa/JEgIK6zEUaGNz1hwSRncCNdWxYMxy0iCEn1h Alexander Längle"
+    - username: laenglea 
+    - sshkey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEKFyLa/JEgIK6zEUaGNz1hwSRncCNdWxYMxy0iCEn1h Alexander Längle"
 
 - name: base | add automation user
   import_tasks: usercreate.yml
   vars:
-    - username=automation 
-    - sshkey="ssh-ed25519 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICjQ6czmPV5GMP2GCXYChPkDAKaH/6rZU/uWDRTKdIME"
+    - username: automation 
+    - sshkey: "ssh-ed25519 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICjQ6czmPV5GMP2GCXYChPkDAKaH/6rZU/uWDRTKdIME"
 
 - name: base | autoupdate setup
   package:
