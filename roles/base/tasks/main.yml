@@ -27,10 +27,10 @@
     enabled: true
 
 - name: base | add user laenglea
-  import_tasks: "{{item}}"
-  with_items:
-    - usercreate.yml username=laenglea sshkey="ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEKFyLa/JEgIK6zEUaGNz1hwSRncCNdWxYMxy0iCEn1h Alexander Längle"
-    - usercreate.yml username=automation sshkey="ssh-ed25519 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICjQ6czmPV5GMP2GCXYChPkDAKaH/6rZU/uWDRTKdIME"
+  import_tasks: usercreate.yml username=laenglea sshkey="ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEKFyLa/JEgIK6zEUaGNz1hwSRncCNdWxYMxy0iCEn1h Alexander Längle"
+
+- name: base | add automation user
+  import_tasks: usercreate.yml username=automation sshkey="ssh-ed25519 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICjQ6czmPV5GMP2GCXYChPkDAKaH/6rZU/uWDRTKdIME"
 
 - name: base | autoupdate setup
   package:
