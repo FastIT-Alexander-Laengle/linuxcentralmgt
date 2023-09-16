@@ -36,7 +36,7 @@
   import_tasks: usercreate.yml
   vars:
     - username: automation 
-    - sshkey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICjQ6czmPV5GMP2GCXYChPkDAKaH/6rZU/uWDRTKdIME"
+    - sshkey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINMIIcKAMhqVZRepQP5SFnb2zAaxSsne+rc1n4nSchgw automation"
 
 - name: base | autoupdate setup
   package:
