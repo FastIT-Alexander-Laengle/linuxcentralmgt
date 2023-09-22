@@ -36,7 +36,9 @@
   import_tasks: usercreate.yml
   vars:
     - username: automation 
-    - sshkey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINMIIcKAMhqVZRepQP5SFnb2zAaxSsne+rc1n4nSchgw automation"
+    - sshkey: |
+        ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINMIIcKAMhqVZRepQP5SFnb2zAaxSsne+rc1n4nSchgw automation
+        ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIVka1Paxt4QOt8YL6nAOFN4o782MeR9fOrY2dJd5OPc automation@up.cloud.fastit.eu
 
 - name: base | autoupdate setup
   package:
