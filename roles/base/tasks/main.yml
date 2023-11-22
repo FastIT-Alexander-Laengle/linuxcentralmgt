@@ -62,6 +62,12 @@
     name: xe-guest-utilities-latest
   when: ansible_virtualization_type == 'xen'
 
+- name: base | install guest utilities on proxmox
+  package:
+    name: qemu-guest-agent
+  when: ansible_virtualization_type == 'kvm'
+
+
 - name: install base packages
   systemd:
     name: xe-linux-distribution
