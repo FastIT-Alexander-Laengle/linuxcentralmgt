@@ -1,5 +1,5 @@
 ---
-# vars file for base
+# defaults file for base
 deployer_cron_specialtime: daily
 deployer_cron_job: ansible-pull -U https://github.com/laenglea/linuxcentralmgt.git -i hosts base.yml
 
