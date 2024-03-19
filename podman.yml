@@ -1,0 +1,13 @@
+---
+- hosts: '{{target}}'
+  become: true
+  roles:
+    - base
+  vars:
+    deployer_cron_job: ansible-pull -U https://github.com/laengle/linuxcentralmgt.git -i hosts podman.yml
+  tasks:
+    - include_role: 
+        name: podman
+          #      when: 
+          #- docker is defined
+          #- docker == true
