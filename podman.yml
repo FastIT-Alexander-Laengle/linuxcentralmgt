@@ -4,7 +4,7 @@
   roles:
     - base
   vars:
-    deployer_cron_job: ansible-pull -U https://github.com/laengle/linuxcentralmgt.git -i hosts podman.yml
+    deployer_cron_job: ansible-pull -U https://github.com/laenglea/linuxcentralmgt.git -i hosts podman.yml
   tasks:
     - include_role: 
         name: podman
