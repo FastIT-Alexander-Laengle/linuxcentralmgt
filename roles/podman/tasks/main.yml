@@ -1,23 +1,9 @@
 ---
 # tasks file for podman
-- name: server | software | podman | install deps
-  dnf:
-    name: "{{ item }}"
-    state: present
-  loop:
-    - dnf-plugins-core
-
 - name: server | software | podman | install podman
   package:
     name: 
       - podman
       - podman-compose
     state: present
- 
-- name: server | software | podman | enable autostart & start service
-  systemd:
-    name: podman
-    enabled: true
-    state: started
- 
 
